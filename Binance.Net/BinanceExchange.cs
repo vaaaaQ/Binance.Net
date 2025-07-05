@@ -118,6 +118,9 @@ namespace Binance.Net
                                             .AddGuard(new RateLimitGuard(RateLimitGuard.PerConnection, new IGuardFilter[] { new LimitItemTypeFilter(RateLimitItemType.Request), new HostFilter("wss://dstream.binance.com") }, 10, TimeSpan.FromSeconds(1), RateLimitWindowType.Fixed)) // 10 requests per second per path (connection)
                                             .AddGuard(new RateLimitGuard(RateLimitGuard.PerConnection, new IGuardFilter[] { new LimitItemTypeFilter(RateLimitItemType.Request), new HostFilter("wss://fstream.binance.com") }, 10, TimeSpan.FromSeconds(1), RateLimitWindowType.Fixed)) // 10 requests per second per path (connection)
                                             .AddGuard(new RateLimitGuard(RateLimitGuard.PerHost, new IGuardFilter[] { new HostFilter("wss://ws-fapi.binance.com") }, 2400, TimeSpan.FromMinutes(1), RateLimitWindowType.Fixed, connectionWeight: 5));
+            
+            MarginRest = new RateLimitGate("Margin Rest")
+                                            .AddGuard(new RateLimitGuard(RateLimitGuard.PerHost, new IGuardFilter[] { new HostFilter("https://papi.binance.com") }, 1200, TimeSpan.FromMinutes(1), RateLimitWindowType.Fixed)); // 1200 requests per minute per host for Margin Account orders
 
             EndpointLimit.RateLimitTriggered += (x) => RateLimitTriggered?.Invoke(x);
             EndpointLimit.RateLimitUpdated += (x) => RateLimitUpdated?.Invoke(x);
@@ -131,6 +134,8 @@ namespace Binance.Net
             FuturesRest.RateLimitUpdated += (x) => RateLimitUpdated?.Invoke(x);
             FuturesSocket.RateLimitTriggered += (x) => RateLimitTriggered?.Invoke(x);
             FuturesSocket.RateLimitUpdated += (x) => RateLimitUpdated?.Invoke(x);
+            MarginRest.RateLimitTriggered += (x) => RateLimitTriggered?.Invoke(x);
+            MarginRest.RateLimitUpdated += (x) => RateLimitUpdated?.Invoke(x);
         }
 
         internal IRateLimitGate EndpointLimit { get; private set; }
@@ -145,5 +150,6 @@ namespace Binance.Net
 
         internal IRateLimitGate FuturesSocket { get; private set; }
 
+        internal IRateLimitGate MarginRest { get; private set; }
     }
 }

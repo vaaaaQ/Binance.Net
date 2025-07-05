@@ -1288,6 +1288,16 @@
         <member name="M:Binance.Net.Clients.GeneralApi.BinanceRestClientGeneralApiSubAccount.FuturesAssetTransferAsync(System.String,System.String,Binance.Net.Enums.FuturesAccountType,System.String,System.Decimal,System.Nullable{System.Int32},System.Threading.CancellationToken)">
             <inheritdoc />
         </member>
+        <member name="M:Binance.Net.Clients.MarginApi.BinanceRestClientMarginApiAccount.GetAccountBalanceAsync(System.Nullable{System.Int64},System.Threading.CancellationToken)">
+            <summary>
+            Gets all margin account balances.
+            </summary>
+        </member>
+        <member name="M:Binance.Net.Clients.MarginApi.BinanceRestClientMarginApiAccount.GetAccountBalanceAsync(System.String,System.Nullable{System.Int64},System.Threading.CancellationToken)">
+            <summary>
+            Gets the margin account balance for a specific asset.
+            </summary>
+        </member>
         <member name="T:Binance.Net.Clients.SpotApi.BinanceRestClientSpotApi">
             <inheritdoc cref="T:Binance.Net.Interfaces.Clients.SpotApi.IBinanceRestClientSpotApi" />
         </member>
@@ -36198,6 +36208,76 @@
         <member name="P:Binance.Net.Objects.Models.Futures.Socket.BinanceStrategyInfo.OpCode">
             <summary>
             Op code
+            </summary>
+        </member>
+        <member name="T:Binance.Net.Objects.Models.Margin.BinanceMarginAccountBalance">
+            <summary>
+            Represents a margin account balance on Binance.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceMarginAccountBalance.Asset">
+            <summary>
+            The asset symbol.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceMarginAccountBalance.TotalWalletBalance">
+            <summary>
+            The total wallet balance.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceMarginAccountBalance.CrossMarginAsset">
+            <summary>
+            The cross margin asset (optional, present only in the full response).
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceMarginAccountBalance.CrossMarginBorrowed">
+            <summary>
+            The amount borrowed in cross margin.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceMarginAccountBalance.CrossMarginFree">
+            <summary>
+            The free amount in cross margin.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceMarginAccountBalance.CrossMarginInterest">
+            <summary>
+            The interest in cross margin.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceMarginAccountBalance.CrossMarginLocked">
+            <summary>
+            The locked amount in cross margin.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceMarginAccountBalance.UmWalletBalance">
+            <summary>
+            The wallet balance for UM (USDⓈ-M Futures).
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceMarginAccountBalance.UmUnrealizedPNL">
+            <summary>
+            The unrealized PNL for UM (optional, can be empty in response).
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceMarginAccountBalance.CmWalletBalance">
+            <summary>
+            The wallet balance for CM (COIN-M Futures).
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceMarginAccountBalance.CmUnrealizedPNL">
+            <summary>
+            The unrealized PNL for CM (optional, can be empty in response).
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceMarginAccountBalance.UpdateTime">
+            <summary>
+            The update time.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceMarginAccountBalance.NegativeBalance">
+            <summary>
+            The negative balance.
             </summary>
         </member>
         <member name="T:Binance.Net.Objects.Options.BinanceOptions">
