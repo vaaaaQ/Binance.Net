@@ -46,6 +46,10 @@
         /// The address used by the BinanceSocketClient for the Coin futures API
         /// </summary>
         public string? CoinFuturesSocketApiClientAddress { get; set; }
+        /// <summary>
+        /// The address used by the BinanceClient for the Margin Account API
+        /// </summary>
+        public string? MarginAccountRestClientAddress { get; set; }
 
         /// <summary>
         /// The default addresses to connect to the binance.com API
@@ -62,6 +66,7 @@
             CoinFuturesRestClientAddress = "https://dapi.binance.com",
             CoinFuturesSocketClientAddress = "wss://dstream.binance.com/",
             CoinFuturesSocketApiClientAddress = "wss://ws-dapi.binance.com/",
+            MarginAccountRestClientAddress = "https://papi.binance.com",
         };
 
         /// <summary>

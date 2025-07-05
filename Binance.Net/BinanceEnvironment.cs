@@ -58,6 +58,11 @@ namespace Binance.Net
         public string? CoinFuturesSocketApiAddress { get; }
 
         /// <summary>
+        /// Margin Account Rest address
+        /// </summary>
+        public string? MarginAccountRestAddress { get; }
+
+        /// <summary>
         /// ctor for DI, use <see cref="CreateCustom"/> for creating a custom environment
         /// </summary>
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
@@ -90,7 +95,8 @@ namespace Binance.Net
             string? usdFuturesSocketApiAddress,
             string? coinFuturesRestAddress,
             string? coinFuturesSocketAddress,
-            string? coinFuturesSocketApiAddress) :
+            string? coinFuturesSocketApiAddress,
+            string? marginAccountRestAddress) :
             base(name)
         {
             SpotRestAddress = spotRestAddress;
@@ -103,6 +109,7 @@ namespace Binance.Net
             CoinFuturesRestAddress = coinFuturesRestAddress;
             CoinFuturesSocketAddress = coinFuturesSocketAddress;
             CoinFuturesSocketApiAddress = coinFuturesSocketApiAddress;
+            MarginAccountRestAddress = marginAccountRestAddress;
         }
 
         /// <summary>
@@ -125,7 +132,8 @@ namespace Binance.Net
                                      BinanceApiAddresses.Default.UsdFuturesSocketApiClientAddress,
                                      BinanceApiAddresses.Default.CoinFuturesRestClientAddress,
                                      BinanceApiAddresses.Default.CoinFuturesSocketClientAddress,
-                                     BinanceApiAddresses.Default.CoinFuturesSocketApiClientAddress);
+                                     BinanceApiAddresses.Default.CoinFuturesSocketApiClientAddress,
+                                     BinanceApiAddresses.Default.MarginAccountRestClientAddress);
 
         /// <summary>
         /// Testnet environment
@@ -141,7 +149,8 @@ namespace Binance.Net
                                      BinanceApiAddresses.TestNet.UsdFuturesSocketApiClientAddress,
                                      BinanceApiAddresses.TestNet.CoinFuturesRestClientAddress,
                                      BinanceApiAddresses.TestNet.CoinFuturesSocketClientAddress,
-                                     BinanceApiAddresses.TestNet.CoinFuturesSocketApiClientAddress);
+                                     BinanceApiAddresses.TestNet.CoinFuturesSocketApiClientAddress,
+                                     BinanceApiAddresses.TestNet.MarginAccountRestClientAddress);
 
         /// <summary>
         /// Binance.us environment
@@ -151,6 +160,7 @@ namespace Binance.Net
                                      BinanceApiAddresses.Us.RestClientAddress,
                                      BinanceApiAddresses.Us.SocketClientStreamAddress,
                                      BinanceApiAddresses.Us.SocketClientApiAddress,
+                                     null,
                                      null,
                                      null,
                                      null,
@@ -173,7 +183,8 @@ namespace Binance.Net
                         string? usdFuturesSocketApiAddress,
                         string? coinFuturesRestAddress,
                         string? coinFuturesSocketAddress,
-                        string? coinFuturesSocketApiAddress)
-            => new BinanceEnvironment(name, spotRestAddress, spotSocketStreamsAddress, spotSocketApiAddress, blvtSocketAddress, usdFuturesRestAddress, usdFuturesSocketAddress, usdFuturesSocketApiAddress, coinFuturesRestAddress, coinFuturesSocketAddress, coinFuturesSocketApiAddress);
+                        string? coinFuturesSocketApiAddress,
+                        string? marginAccountRestAddress)
+            => new BinanceEnvironment(name, spotRestAddress, spotSocketStreamsAddress, spotSocketApiAddress, blvtSocketAddress, usdFuturesRestAddress, usdFuturesSocketAddress, usdFuturesSocketApiAddress, coinFuturesRestAddress, coinFuturesSocketAddress, coinFuturesSocketApiAddress, marginAccountRestAddress);
     }
 }

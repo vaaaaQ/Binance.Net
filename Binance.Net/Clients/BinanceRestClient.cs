@@ -11,6 +11,7 @@ using Binance.Net.Objects.Options;
 using CryptoExchange.Net.Clients;
 using Microsoft.Extensions.Options;
 using CryptoExchange.Net.Objects.Options;
+using Binance.Net.Interfaces.Clients.MarginApi;
 
 namespace Binance.Net.Clients
 {
@@ -27,6 +28,8 @@ namespace Binance.Net.Clients
         public IBinanceRestClientUsdFuturesApi UsdFuturesApi { get; }
         /// <inheritdoc />
         public IBinanceRestClientCoinFuturesApi CoinFuturesApi { get; }
+        /// <inheritdoc />
+        public IBinanceRestClientMarginApi MarginApi { get; }
 
         #endregion
 
@@ -55,6 +58,7 @@ namespace Binance.Net.Clients
             SpotApi = AddApiClient(new BinanceRestClientSpotApi(_logger, httpClient, options.Value));
             UsdFuturesApi = AddApiClient(new BinanceRestClientUsdFuturesApi(_logger, httpClient, options.Value));
             CoinFuturesApi = AddApiClient(new BinanceRestClientCoinFuturesApi(_logger, httpClient, options.Value));
+            MarginApi = AddApiClient(new BinanceRestClientMarginApi(_logger, httpClient, options.Value));
         }
 
         #endregion

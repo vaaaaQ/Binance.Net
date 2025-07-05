@@ -59,9 +59,14 @@
             Coin futures Socket address for the request API
             </summary>
         </member>
+        <member name="P:Binance.Net.BinanceEnvironment.MarginAccountRestAddress">
+            <summary>
+            Margin Account Rest address
+            </summary>
+        </member>
         <member name="M:Binance.Net.BinanceEnvironment.#ctor">
             <summary>
-            ctor for DI, use <see cref="M:Binance.Net.BinanceEnvironment.CreateCustom(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)"/> for creating a custom environment
+            ctor for DI, use <see cref="M:Binance.Net.BinanceEnvironment.CreateCustom(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)"/> for creating a custom environment
             </summary>
         </member>
         <member name="M:Binance.Net.BinanceEnvironment.GetEnvironmentByName(System.String)">
@@ -90,7 +95,7 @@
             Binance.us environment
             </summary>
         </member>
-        <member name="M:Binance.Net.BinanceEnvironment.CreateCustom(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:Binance.Net.BinanceEnvironment.CreateCustom(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Create a custom environment
             </summary>
@@ -232,6 +237,9 @@
             <inheritdoc />
         </member>
         <member name="P:Binance.Net.Clients.BinanceRestClient.CoinFuturesApi">
+            <inheritdoc />
+        </member>
+        <member name="P:Binance.Net.Clients.BinanceRestClient.MarginApi">
             <inheritdoc />
         </member>
         <member name="M:Binance.Net.Clients.BinanceRestClient.#ctor(System.Action{Binance.Net.Objects.Options.BinanceRestOptions})">
@@ -714,6 +722,15 @@
             <inheritdoc />
         </member>
         <member name="M:Binance.Net.Clients.CoinFuturesApi.BinanceSocketClientCoinFuturesApiTrading.GetPositionsAsync(System.String,System.Nullable{System.Int64},System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Binance.Net.Clients.CoinFuturesApi.BinanceRestClientMarginApi.FormatSymbol(System.String,System.String,CryptoExchange.Net.SharedApis.TradingMode,System.Nullable{System.DateTime})">
+            <inheritdoc />
+        </member>
+        <member name="M:Binance.Net.Clients.CoinFuturesApi.BinanceRestClientMarginApi.CreateAuthenticationProvider(CryptoExchange.Net.Authentication.ApiCredentials)">
+            <inheritdoc />
+        </member>
+        <member name="M:Binance.Net.Clients.CoinFuturesApi.BinanceRestClientMarginApi.CreateSerializer">
             <inheritdoc />
         </member>
         <member name="T:Binance.Net.Clients.GeneralApi.BinanceRestClientGeneralApi">
@@ -1292,9 +1309,6 @@
         <member name="P:Binance.Net.Clients.SpotApi.BinanceRestClientSpotApi.Agent">
             <inheritdoc />
         </member>
-        <member name="P:Binance.Net.Clients.SpotApi.BinanceRestClientSpotApi.Margin">
-            <inheritdoc />
-        </member>
         <member name="P:Binance.Net.Clients.SpotApi.BinanceRestClientSpotApi.ExchangeName">
             <inheritdoc />
         </member>
@@ -1677,9 +1691,6 @@
             <inheritdoc />
         </member>
         <member name="M:Binance.Net.Clients.SpotApi.BinanceRestClientSpotApiExchangeData.GetDelistScheduleAsync(System.Nullable{System.Int32},System.Threading.CancellationToken)">
-            <inheritdoc />
-        </member>
-        <member name="T:Binance.Net.Clients.SpotApi.BinanceRestClientSpotApiMargin">
             <inheritdoc />
         </member>
         <member name="T:Binance.Net.Clients.SpotApi.BinanceRestClientSpotApiTrading">
@@ -14898,6 +14909,21 @@
             <param name="credentials">The credentials for the user. Required the first time a client is requested for this user unless <see cref="M:Binance.Net.Interfaces.Clients.IBinanceUserClientProvider.InitializeUserClient(System.String,CryptoExchange.Net.Authentication.ApiCredentials,Binance.Net.BinanceEnvironment)" /> has been called prior for this user.</param>
             <param name="environment">The environment to use</param>
         </member>
+        <member name="T:Binance.Net.Interfaces.Clients.MarginApi.IBinanceRestClientMarginApi">
+            <summary>
+            Interface for Binance Margin API client, providing access to margin trading and account endpoints.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Interfaces.Clients.MarginApi.IBinanceRestClientMarginApi.Trading">
+            <summary>
+            Access to margin trading endpoints.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Interfaces.Clients.MarginApi.IBinanceRestClientMarginApi.Account">
+            <summary>
+            Access to margin account endpoints.
+            </summary>
+        </member>
         <member name="T:Binance.Net.Interfaces.Clients.SpotApi.IBinanceRestClientSpotApi">
             <summary>
             Binance Spot API endpoints
@@ -14931,12 +14957,6 @@
             Endpoints related to query user data.
              </summary>
              <see cref="T:Binance.Net.Interfaces.Clients.SpotApi.IBinanceRestClientSpotApiAgent"/>
-        </member>
-        <member name="P:Binance.Net.Interfaces.Clients.SpotApi.IBinanceRestClientSpotApi.Margin">
-            <summary>
-            Endpoints related to margin account functionalities
-            </summary>
-            <see cref="T:Binance.Net.Interfaces.Clients.SpotApi.IBinanceRestClientSpotApiMargin"/>
         </member>
         <member name="T:Binance.Net.Interfaces.Clients.SpotApi.IBinanceRestClientSpotApiAccount">
             <summary>
@@ -16213,11 +16233,6 @@
             <param name="receiveWindow">The receive window for which this request is active. When the request takes longer than this to complete the server will reject the request</param>
             <param name="ct">Cancellation token</param>
             <returns></returns>
-        </member>
-        <member name="T:Binance.Net.Interfaces.Clients.SpotApi.IBinanceRestClientSpotApiMargin">
-            <summary>
-            Binance Spot Margin API endpoints
-            </summary>
         </member>
         <member name="T:Binance.Net.Interfaces.Clients.SpotApi.IBinanceRestClientSpotApiShared">
             <summary>
@@ -19922,6 +19937,11 @@
         <member name="P:Binance.Net.Objects.BinanceApiAddresses.CoinFuturesSocketApiClientAddress">
             <summary>
             The address used by the BinanceSocketClient for the Coin futures API
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.BinanceApiAddresses.MarginAccountRestClientAddress">
+            <summary>
+            The address used by the BinanceClient for the Margin Account API
             </summary>
         </member>
         <member name="F:Binance.Net.Objects.BinanceApiAddresses.Default">

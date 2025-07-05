@@ -8,6 +8,7 @@ using CryptoExchange.Net.Converters.MessageParsing;
 using CryptoExchange.Net.Clients;
 using CryptoExchange.Net.SharedApis;
 using Binance.Net.Converters;
+using CryptoExchange.Net.Objects.Options;
 
 namespace Binance.Net.Clients.CoinFuturesApi
 {

@@ -33,11 +33,5 @@
         /// </summary>
         /// <see cref="IBinanceRestClientSpotApiAgent"/>
         public IBinanceRestClientSpotApiAgent Agent { get; }
-
-        /// <summary>
-        /// Endpoints related to margin account functionalities
-        /// </summary>
-        /// <see cref="IBinanceRestClientSpotApiMargin"/>
-        public IBinanceRestClientSpotApiMargin Margin { get; }
     }
 }
