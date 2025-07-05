@@ -45,4 +45,17 @@ internal class BinanceRestClientMarginApiAccount(BinanceRestClientMarginApi clie
         var request = _definitions.GetOrCreate(HttpMethod.Get, "/papi/v1/account", BinanceExchange.RateLimiter.MarginRest, 20, true);
         return await _client.SendAsync<BinanceMarginAccountInfo>(request, parameters, ct).ConfigureAwait(false);
     }
+
+    /// <summary>
+    /// Gets the margin max borrowable amount for a specific asset.
+    /// </summary>
+    public async Task<WebCallResult<BinanceMarginMaxBorrowable>> GetMaxBorrowableAsync(string asset, long? receiveWindow = null, CancellationToken ct = default)
+    {
+        var parameters = new ParameterCollection();
+        parameters.AddParameter("asset", asset);
+        parameters.AddOptionalParameter("recvWindow", receiveWindow?.ToString(CultureInfo.InvariantCulture));
+
+        var request = _definitions.GetOrCreate(HttpMethod.Get, "/papi/v1/margin/maxBorrowable", BinanceExchange.RateLimiter.MarginRest, 5, true);
+        return await _client.SendAsync<BinanceMarginMaxBorrowable>(request, parameters, ct).ConfigureAwait(false);
+    }
 }
