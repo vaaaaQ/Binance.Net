@@ -493,6 +493,7 @@ namespace Binance.Net.UnitTests
                 
             await tester.ValidateAsync(client => client.MarginApi.Account.GetAccountBalanceAsync(), "GetAccountBalanceAsync");
             await tester.ValidateAsync(client => client.MarginApi.Account.GetAccountBalanceAsync("BTC"), "GetAccountBalanceAsyncSingle");
+            await tester.ValidateAsync(client => client.MarginApi.Account.GetAccountInfoAsync(), "GetAccountInfoAsync");
         }
 
         private bool IsAuthenticated(WebCallResult result)

@@ -1,0 +1,15 @@
+GET
+/papi/v1/account
+true
+{
+   "uniMMR": "5167.92171923",
+   "accountEquity": "122607.35137903",
+   "actualEquity": "73.47428058",
+   "accountInitialMargin": "23.72469206", 
+   "accountMaintMargin": "23.72469206",
+   "accountStatus": "NORMAL",
+   "virtualMaxWithdrawAmount": "1627523.32459208",
+   "totalAvailableBalance": "100.00000000",
+   "totalMarginOpenLoss": "10.00000000",
+   "updateTime": 1657707212154
+}

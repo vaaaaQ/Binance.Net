@@ -34,4 +34,15 @@ internal class BinanceRestClientMarginApiAccount(BinanceRestClientMarginApi clie
         return await _client.SendAsync<BinanceMarginAccountBalance>(request, parameters, ct).ConfigureAwait(false);
     }
 
+    /// <summary>
+    /// Gets the margin account information.
+    /// </summary>
+    public async Task<WebCallResult<BinanceMarginAccountInfo>> GetAccountInfoAsync(long? receiveWindow = null, CancellationToken ct = default)
+    {
+        var parameters = new ParameterCollection();
+        parameters.AddOptionalParameter("recvWindow", receiveWindow?.ToString(CultureInfo.InvariantCulture));
+
+        var request = _definitions.GetOrCreate(HttpMethod.Get, "/papi/v1/account", BinanceExchange.RateLimiter.MarginRest, 20, true);
+        return await _client.SendAsync<BinanceMarginAccountInfo>(request, parameters, ct).ConfigureAwait(false);
+    }
 }

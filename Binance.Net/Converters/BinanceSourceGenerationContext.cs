@@ -23,6 +23,8 @@ namespace Binance.Net.Converters
     [JsonSerializable(typeof(ParameterCollection[]))]
     [JsonSerializable(typeof(string[]))]
     [JsonSerializable(typeof(BinanceResponse<BinanceAccountInfo>))]
+    [JsonSerializable(typeof(BinanceResponse<BinanceMarginAccountInfo>))]
+    [JsonSerializable(typeof(BinanceMarginAccountInfo))]
     [JsonSerializable(typeof(BinanceResponse<BinanceCurrentRateLimit[]>))]
     [JsonSerializable(typeof(BinanceResponse<BinanceListenKey>))]
     [JsonSerializable(typeof(BinanceResponse<object>))]
