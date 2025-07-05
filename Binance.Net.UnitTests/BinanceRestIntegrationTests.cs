@@ -1,4 +1,5 @@
 ﻿using Binance.Net.Clients;
+using Binance.Net.Objects.Models.Margin;
 using Binance.Net.Objects.Options;
 using Binance.Net.SymbolOrderBooks;
 using CryptoExchange.Net.Objects;
@@ -293,6 +294,13 @@ namespace Binance.Net.UnitTests
             await TestOrderBook(new BinanceSpotSymbolOrderBook("ETHUSDT"));
             await TestOrderBook(new BinanceFuturesUsdtSymbolOrderBook("ETHUSDT"));
             await TestOrderBook(new BinanceFuturesCoinSymbolOrderBook("ETHUSD_PERP"));
+        }
+
+        [Test]
+        public async Task TestMarginAccount()
+        {
+            await RunAndCheckResult(client => client.MarginApi.Account.GetAccountBalanceAsync(null, default), true);
+            await RunAndCheckResult(client => client.MarginApi.Account.GetAccountBalanceAsync("BTC", null, default), true);
         }
     }
 }

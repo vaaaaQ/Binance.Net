@@ -2,6 +2,7 @@ using Binance.Net.Objects;
 using Binance.Net.Objects.Models;
 using Binance.Net.Objects.Models.Futures;
 using Binance.Net.Objects.Models.Futures.Socket;
+using Binance.Net.Objects.Models.Margin;
 using Binance.Net.Objects.Models.Spot;
 using Binance.Net.Objects.Models.Spot.Blvt;
 using Binance.Net.Objects.Models.Spot.Convert;
@@ -77,6 +78,10 @@ namespace Binance.Net.Converters
     [JsonSerializable(typeof(Objects.Internal.BinanceExchangeApiWrapper<BinanceProduct[]>))]
     [JsonSerializable(typeof(Objects.Internal.BinanceSnapshotWrapper<BinanceSpotAccountSnapshot[]>))]
     [JsonSerializable(typeof(Objects.Internal.BinanceSnapshotWrapper<BinanceMarginAccountSnapshot[]>))]
+    [JsonSerializable(typeof(BinanceMarginAccountBalance))]
+    [JsonSerializable(typeof(BinanceMarginAccountBalance[]))]
+    [JsonSerializable(typeof(BinanceResponse<BinanceMarginAccountBalance>))]
+    [JsonSerializable(typeof(BinanceResponse<BinanceMarginAccountBalance[]>))]
     [JsonSerializable(typeof(Objects.Internal.BinanceSnapshotWrapper<BinanceFuturesAccountSnapshot[]>))]
     [JsonSerializable(typeof(Objects.Internal.BinanceSocketRequest[]))]
     [JsonSerializable(typeof(Objects.Internal.BinanceSocketQuery[]))]

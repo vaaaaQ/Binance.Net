@@ -1,0 +1,35 @@
+GET
+/papi/v1/balance
+true
+[
+    {
+        "asset": "USDT",
+        "totalWalletBalance": "1000.12345678",
+        "crossMarginAsset": "1000.12345678",
+        "crossMarginBorrowed": "0.00000000",
+        "crossMarginFree": "1000.12345678",
+        "crossMarginInterest": "0.00000000",
+        "crossMarginLocked": "0.00000000",
+        "umWalletBalance": "0.00000000",
+        "umUnrealizedPNL": "0.00000000",
+        "cmWalletBalance": "0.00000000",
+        "cmUnrealizedPNL": "0.00000000",
+        "updateTime": 1718000000000,
+        "negativeBalance": "0.00000000"
+    },
+    {
+        "asset": "BTC",
+        "totalWalletBalance": "0.12345678",
+        "crossMarginAsset": "0.12345678",
+        "crossMarginBorrowed": "0.00000000",
+        "crossMarginFree": "0.12345678",
+        "crossMarginInterest": "0.00000000",
+        "crossMarginLocked": "0.00000000",
+        "umWalletBalance": "0.00000000",
+        "umUnrealizedPNL": "0.00000000",
+        "cmWalletBalance": "0.00000000",
+        "cmUnrealizedPNL": "0.00000000",
+        "updateTime": 1718000000000,
+        "negativeBalance": "0.00000000"
+    }
+]

@@ -1,5 +1,6 @@
 ﻿using Binance.Net.Clients;
 using Binance.Net.Interfaces;
+using Binance.Net.Interfaces.Clients.MarginApi;
 using Binance.Net.Objects.Models.Futures;
 using Binance.Net.Objects.Models.Spot;
 using CryptoExchange.Net.Objects;
@@ -473,6 +474,25 @@ namespace Binance.Net.UnitTests
             await tester.ValidateAsync(client => client.GeneralApi.AutoInvest.GetPlanHoldingsAsync(), "GetPlanHoldings");
             await tester.ValidateAsync(client => client.GeneralApi.AutoInvest.GetIndexLinkedPlanPositionDetailsAsync(123), "GetIndexLinkedPlanPositionDetails");
             await tester.ValidateAsync(client => client.GeneralApi.AutoInvest.GetIndexLinkedPlanRebalanceHistoryAsync(), "GetIndexLinkedPlanRebalanceHistory");
+        }
+
+        [Test]
+        public async Task ValidateMarginAccountCalls()
+        {
+            var client = new BinanceRestClient(opts =>
+            {
+                opts.AutoTimestamp = false;
+                opts.ApiCredentials = new CryptoExchange.Net.Authentication.ApiCredentials("123", "456");
+            });
+            
+            var tester = new RestRequestValidator<BinanceRestClient>(
+                client, 
+                "Endpoints/Margin/Account", 
+                "https://papi.binance.com", 
+                IsAuthenticated);
+                
+            await tester.ValidateAsync(client => client.MarginApi.Account.GetAccountBalanceAsync(), "GetAccountBalanceAsync");
+            await tester.ValidateAsync(client => client.MarginApi.Account.GetAccountBalanceAsync("BTC"), "GetAccountBalanceAsyncSingle");
         }
 
         private bool IsAuthenticated(WebCallResult result)

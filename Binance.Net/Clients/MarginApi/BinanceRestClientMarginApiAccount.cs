@@ -17,7 +17,7 @@ internal class BinanceRestClientMarginApiAccount(BinanceRestClientMarginApi clie
         var parameters = new ParameterCollection();
         parameters.AddOptionalParameter("recvWindow", receiveWindow?.ToString(CultureInfo.InvariantCulture));
 
-        var request = _definitions.GetOrCreate(HttpMethod.Get, "/papi/v1/balance", BinanceExchange.RateLimiter.MarginRest, 20);
+        var request = _definitions.GetOrCreate(HttpMethod.Get, "/papi/v1/balance", BinanceExchange.RateLimiter.MarginRest, 20, true);
         return await _client.SendAsync<BinanceMarginAccountBalance[]>(request, parameters, ct).ConfigureAwait(false);
     }
 
@@ -30,7 +30,7 @@ internal class BinanceRestClientMarginApiAccount(BinanceRestClientMarginApi clie
         parameters.AddParameter("asset", asset);
         parameters.AddOptionalParameter("recvWindow", receiveWindow?.ToString(CultureInfo.InvariantCulture));
 
-        var request = _definitions.GetOrCreate(HttpMethod.Get, "/papi/v1/balance", BinanceExchange.RateLimiter.MarginRest, 20);
+        var request = _definitions.GetOrCreate(HttpMethod.Get, "/papi/v1/balance", BinanceExchange.RateLimiter.MarginRest, 20, true);
         return await _client.SendAsync<BinanceMarginAccountBalance>(request, parameters, ct).ConfigureAwait(false);
     }
 
