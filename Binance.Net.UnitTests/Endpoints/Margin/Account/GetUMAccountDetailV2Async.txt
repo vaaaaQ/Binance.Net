@@ -1,0 +1,29 @@
+GET
+/papi/v2/um/account
+true
+{   
+    "assets": [
+        {
+            "asset": "USDT",
+            "crossWalletBalance": "23.72469206",
+            "crossUnPnl": "0.00000000",
+            "maintMargin": "0.00000000",
+            "initialMargin": "0.00000000",
+            "positionInitialMargin": "0.00000000",
+            "openOrderInitialMargin": "0.00000000",
+            "updateTime": 1625474304765
+        }
+    ],
+    "positions": [
+        {
+            "symbol": "BTCUSDT",
+            "initialMargin": "0",
+            "maintMargin": "0",
+            "unrealizedProfit": "0.00000000",
+            "positionSide": "BOTH",
+            "positionAmt": "0",
+            "updateTime": 0,
+            "notional": "86.98650000"
+        }
+    ]
+}

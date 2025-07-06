@@ -495,6 +495,7 @@ namespace Binance.Net.UnitTests
             await tester.ValidateAsync(client => client.MarginApi.Account.GetAccountBalanceAsync("BTC"), "GetAccountBalanceAsyncSingle");
             await tester.ValidateAsync(client => client.MarginApi.Account.GetAccountInfoAsync(), "GetAccountInfoAsync");
             await tester.ValidateAsync(client => client.MarginApi.Account.GetMaxBorrowableAsync("BTC"), "GetMaxBorrowableAsync");
+            await tester.ValidateAsync(client => client.MarginApi.Account.GetUMAccountDetailV2Async(), "GetUMAccountDetailV2Async");
         }
 
         private bool IsAuthenticated(WebCallResult result)

@@ -33,4 +33,12 @@ public interface IBinanceRestClientMarginApiAccount
     /// <param name="ct">Cancellation token</param>
     /// <returns>Margin max borrowable amount information</returns>
     Task<WebCallResult<BinanceMarginMaxBorrowable>> GetMaxBorrowableAsync(string asset, long? receiveWindow = null, CancellationToken ct = default);
+    
+    /// <summary>
+    /// Gets current UM (USDⓈ-M Futures) account asset and position information.
+    /// </summary>
+    /// <param name="receiveWindow">The receive window for which this request is active. When the request takes longer than this to complete the server will reject the request</param>
+    /// <param name="ct">Cancellation token</param>
+    /// <returns>UM account detail information</returns>
+    Task<WebCallResult<BinanceUMAccountDetailV2>> GetUMAccountDetailV2Async(long? receiveWindow = null, CancellationToken ct = default);
 }

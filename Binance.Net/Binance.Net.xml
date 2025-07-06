@@ -1308,6 +1308,11 @@
             Gets the margin max borrowable amount for a specific asset.
             </summary>
         </member>
+        <member name="M:Binance.Net.Clients.MarginApi.BinanceRestClientMarginApiAccount.GetUMAccountDetailV2Async(System.Nullable{System.Int64},System.Threading.CancellationToken)">
+            <summary>
+            Gets current UM (USDⓈ-M Futures) account asset and position information.
+            </summary>
+        </member>
         <member name="T:Binance.Net.Clients.SpotApi.BinanceRestClientSpotApi">
             <inheritdoc cref="T:Binance.Net.Interfaces.Clients.SpotApi.IBinanceRestClientSpotApi" />
         </member>
@@ -3145,6 +3150,11 @@
             </summary>
         </member>
         <member name="P:Binance.Net.Converters.BinanceSourceGenerationContext.BinanceResponseBinanceMarginMaxBorrowable">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Converters.BinanceSourceGenerationContext.BinanceResponseBinanceUMAccountDetailV2">
             <summary>
             Defines the source generated JSON serialization contract metadata for a given type.
             </summary>
@@ -5150,6 +5160,31 @@
             </summary>
         </member>
         <member name="P:Binance.Net.Converters.BinanceSourceGenerationContext.BinanceMarginMaxBorrowable">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Converters.BinanceSourceGenerationContext.BinanceUMAccountAssetV2">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Converters.BinanceSourceGenerationContext.BinanceUMAccountAssetV2Array">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Converters.BinanceSourceGenerationContext.BinanceUMAccountDetailV2">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Converters.BinanceSourceGenerationContext.BinanceUMAccountPositionV2">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Converters.BinanceSourceGenerationContext.BinanceUMAccountPositionV2Array">
             <summary>
             Defines the source generated JSON serialization contract metadata for a given type.
             </summary>
@@ -15015,6 +15050,14 @@
             <param name="receiveWindow">The receive window for which this request is active. When the request takes longer than this to complete the server will reject the request</param>
             <param name="ct">Cancellation token</param>
             <returns>Margin max borrowable amount information</returns>
+        </member>
+        <member name="M:Binance.Net.Interfaces.Clients.MarginApi.IBinanceRestClientMarginApiAccount.GetUMAccountDetailV2Async(System.Nullable{System.Int64},System.Threading.CancellationToken)">
+            <summary>
+            Gets current UM (USDⓈ-M Futures) account asset and position information.
+            </summary>
+            <param name="receiveWindow">The receive window for which this request is active. When the request takes longer than this to complete the server will reject the request</param>
+            <param name="ct">Cancellation token</param>
+            <returns>UM account detail information</returns>
         </member>
         <member name="T:Binance.Net.Interfaces.Clients.SpotApi.IBinanceRestClientSpotApi">
             <summary>
@@ -36430,6 +36473,111 @@
         <member name="P:Binance.Net.Objects.Models.Margin.BinanceMarginMaxBorrowable.BorrowLimit">
             <summary>
             Max borrowable amount limited by the account level.
+            </summary>
+        </member>
+        <member name="T:Binance.Net.Objects.Models.Margin.BinanceUMAccountDetailV2">
+            <summary>
+            Represents the UM (USDⓈ-M Futures) account detail information.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceUMAccountDetailV2.Assets">
+            <summary>
+            List of assets in the UM account.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceUMAccountDetailV2.Positions">
+            <summary>
+            List of positions in the UM account.
+            </summary>
+        </member>
+        <member name="T:Binance.Net.Objects.Models.Margin.BinanceUMAccountAssetV2">
+            <summary>
+            Represents an asset in the UM (USDⓈ-M Futures) account detail.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceUMAccountAssetV2.Asset">
+            <summary>
+            Asset name.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceUMAccountAssetV2.CrossWalletBalance">
+            <summary>
+            Wallet balance.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceUMAccountAssetV2.CrossUnPnl">
+            <summary>
+            Unrealized profit.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceUMAccountAssetV2.MaintMargin">
+            <summary>
+            Maintenance margin required.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceUMAccountAssetV2.InitialMargin">
+            <summary>
+            Total initial margin required with current mark price.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceUMAccountAssetV2.PositionInitialMargin">
+            <summary>
+            Initial margin required for positions with current mark price.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceUMAccountAssetV2.OpenOrderInitialMargin">
+            <summary>
+            Initial margin required for open orders with current mark price.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceUMAccountAssetV2.UpdateTime">
+            <summary>
+            Last update time.
+            </summary>
+        </member>
+        <member name="T:Binance.Net.Objects.Models.Margin.BinanceUMAccountPositionV2">
+            <summary>
+            Represents a position in the UM (USDⓈ-M Futures) account detail.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceUMAccountPositionV2.Symbol">
+            <summary>
+            Symbol name.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceUMAccountPositionV2.InitialMargin">
+            <summary>
+            Initial margin required with current mark price.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceUMAccountPositionV2.MaintMargin">
+            <summary>
+            Maintenance margin required.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceUMAccountPositionV2.UnrealizedProfit">
+            <summary>
+            Unrealized profit.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceUMAccountPositionV2.PositionSide">
+            <summary>
+            Position side: BOTH for One-way mode, LONG or SHORT for Hedge mode.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceUMAccountPositionV2.PositionAmt">
+            <summary>
+            Position amount.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceUMAccountPositionV2.UpdateTime">
+            <summary>
+            Last update time.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceUMAccountPositionV2.Notional">
+            <summary>
+            Notional value of position.
             </summary>
         </member>
         <member name="T:Binance.Net.Objects.Options.BinanceOptions">

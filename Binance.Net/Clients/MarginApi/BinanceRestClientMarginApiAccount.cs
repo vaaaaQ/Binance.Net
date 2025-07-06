@@ -58,4 +58,16 @@ internal class BinanceRestClientMarginApiAccount(BinanceRestClientMarginApi clie
         var request = _definitions.GetOrCreate(HttpMethod.Get, "/papi/v1/margin/maxBorrowable", BinanceExchange.RateLimiter.MarginRest, 5, true);
         return await _client.SendAsync<BinanceMarginMaxBorrowable>(request, parameters, ct).ConfigureAwait(false);
     }
+
+    /// <summary>
+    /// Gets current UM (USDⓈ-M Futures) account asset and position information.
+    /// </summary>
+    public async Task<WebCallResult<BinanceUMAccountDetailV2>> GetUMAccountDetailV2Async(long? receiveWindow = null, CancellationToken ct = default)
+    {
+        var parameters = new ParameterCollection();
+        parameters.AddOptionalParameter("recvWindow", receiveWindow?.ToString(CultureInfo.InvariantCulture));
+
+        var request = _definitions.GetOrCreate(HttpMethod.Get, "/papi/v2/um/account", BinanceExchange.RateLimiter.MarginRest, 5, true);
+        return await _client.SendAsync<BinanceUMAccountDetailV2>(request, parameters, ct).ConfigureAwait(false);
+    }
 }
