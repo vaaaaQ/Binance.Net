@@ -1303,6 +1303,11 @@
             Gets the margin account information.
             </summary>
         </member>
+        <member name="M:Binance.Net.Clients.MarginApi.BinanceRestClientMarginApiAccount.GetMaxBorrowableAsync(System.String,System.Nullable{System.Int64},System.Threading.CancellationToken)">
+            <summary>
+            Gets the margin max borrowable amount for a specific asset.
+            </summary>
+        </member>
         <member name="T:Binance.Net.Clients.SpotApi.BinanceRestClientSpotApi">
             <inheritdoc cref="T:Binance.Net.Interfaces.Clients.SpotApi.IBinanceRestClientSpotApi" />
         </member>
@@ -3135,6 +3140,11 @@
             </summary>
         </member>
         <member name="P:Binance.Net.Converters.BinanceSourceGenerationContext.BinanceResponseBinanceMarginAccountInfo">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Converters.BinanceSourceGenerationContext.BinanceResponseBinanceMarginMaxBorrowable">
             <summary>
             Defines the source generated JSON serialization contract metadata for a given type.
             </summary>
@@ -5135,6 +5145,11 @@
             </summary>
         </member>
         <member name="P:Binance.Net.Converters.BinanceSourceGenerationContext.BinanceMarginAccountInfo">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Converters.BinanceSourceGenerationContext.BinanceMarginMaxBorrowable">
             <summary>
             Defines the source generated JSON serialization contract metadata for a given type.
             </summary>
@@ -14991,6 +15006,15 @@
             <param name="receiveWindow">The receive window for which this request is active. When the request takes longer than this to complete the server will reject the request</param>
             <param name="ct">Cancellation token</param>
             <returns>Margin account information</returns>
+        </member>
+        <member name="M:Binance.Net.Interfaces.Clients.MarginApi.IBinanceRestClientMarginApiAccount.GetMaxBorrowableAsync(System.String,System.Nullable{System.Int64},System.Threading.CancellationToken)">
+            <summary>
+            Gets the margin max borrowable amount for a specific asset.
+            </summary>
+            <param name="asset">The asset to get max borrowable amount for</param>
+            <param name="receiveWindow">The receive window for which this request is active. When the request takes longer than this to complete the server will reject the request</param>
+            <param name="ct">Cancellation token</param>
+            <returns>Margin max borrowable amount information</returns>
         </member>
         <member name="T:Binance.Net.Interfaces.Clients.SpotApi.IBinanceRestClientSpotApi">
             <summary>
@@ -36391,6 +36415,21 @@
         <member name="P:Binance.Net.Objects.Models.Margin.BinanceMarginAccountInfo.UpdateTime">
             <summary>
             Last update time.
+            </summary>
+        </member>
+        <member name="T:Binance.Net.Objects.Models.Margin.BinanceMarginMaxBorrowable">
+            <summary>
+            Represents margin max borrowable amount information on Binance.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceMarginMaxBorrowable.Amount">
+            <summary>
+            Account's currently max borrowable amount with sufficient system availability.
+            </summary>
+        </member>
+        <member name="P:Binance.Net.Objects.Models.Margin.BinanceMarginMaxBorrowable.BorrowLimit">
+            <summary>
+            Max borrowable amount limited by the account level.
             </summary>
         </member>
         <member name="T:Binance.Net.Objects.Options.BinanceOptions">
